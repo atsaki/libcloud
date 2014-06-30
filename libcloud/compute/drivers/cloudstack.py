@@ -679,7 +679,7 @@ class CloudStackNodeDriver(CloudStackDriverMixIn, NodeDriver):
 
             addresses = public_ips_map.get(str(vm['id']), {}).items()
             addresses = [CloudStackAddress(address_id, address, node.driver)
-                             for address, address_id in addresses]
+                         for address, address_id in addresses]
             node.extra['ip_addresses'] = addresses
 
             rules = []
@@ -701,8 +701,8 @@ class CloudStackNodeDriver(CloudStackDriverMixIn, NodeDriver):
                 if str(r['virtualmachineid']) == node.id:
                     addr = [
                         CloudStackAddress(a['id'], a['ipaddress'], node.driver)
-                            for a in addrs.get('publicipaddress', [])
-                            if a['ipaddress'] == r['ipaddress']
+                        for a in addrs.get('publicipaddress', [])
+                        if a['ipaddress'] == r['ipaddress']
                     ]
                     rule = CloudStackPortForwardingRule(node, r['id'],
                                                         addr[0],
